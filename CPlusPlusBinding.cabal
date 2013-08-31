@@ -14,4 +14,3 @@ library
   build-tools: c2hs
   extensions: ForeignFunctionInterface
   hs-source-dirs: src
-  ld-options: -static -A_C

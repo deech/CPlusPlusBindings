@@ -40,5 +40,5 @@ addLib pd =
 
 myBuildHook pkg_descr local_bld_info user_hooks bld_flags =
     do
-      let new_pkg_descr = (addLibDirs . addIncludeDirs $ pkg_descr)
+      let new_pkg_descr = (addLib . addLibDirs . addIncludeDirs $ pkg_descr)
       buildHook simpleUserHooks new_pkg_descr local_bld_info user_hooks bld_flags

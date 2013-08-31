@@ -5,3 +5,6 @@ cabal-dev
 *.chi
 *.chs.h
 .virthualenv
+c-src/libA_C.a
+c-test/call_a
+cpp-src/libA.a

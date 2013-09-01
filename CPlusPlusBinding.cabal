@@ -1,4 +1,4 @@
-name: CPlusPlusBinding 
+name: CPlusPlusBinding
 version: 0.1.0.0
 description:
   Test Binding
@@ -8,9 +8,17 @@ author: Aditya Siram
 maintainer: aditya.siram@gmail.com
 build-type: Custom
 cabal-version: >=1.8
+
 library
-  exposed-modules: BindingTest
+  exposed-modules: Binding
   build-depends: base
   build-tools: c2hs
   extensions: ForeignFunctionInterface
   hs-source-dirs: src
+  ghc-options: -Wall -lA_C -I./c-src
+
+executable binding_test
+  Main-Is: BindingTest.hs
+  hs-source-dirs: src
+  build-depends: base,CPlusPlusBinding
+  ghc-options: -Wall -threaded

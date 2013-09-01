@@ -1,4 +1,5 @@
 DIRS = cpp-src c-src c-test
+.SILENT: 
 all:
 	cd cpp-src; make all
 	cd c-src; make all

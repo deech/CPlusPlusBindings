@@ -21,4 +21,5 @@ executable binding_test
   Main-Is: BindingTest.hs
   hs-source-dirs: src
   build-depends: base,CPlusPlusBinding
-  ghc-options: -Wall -threaded
+  include-dirs: ./c-src
+  ghc-options: -Wall -threaded -lHSCPlusPlusBinding-0.1.0.0 -lA_C -lA -lstdc++

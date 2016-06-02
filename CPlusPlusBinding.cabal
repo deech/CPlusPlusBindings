@@ -15,11 +15,12 @@ library
   build-tools: c2hs
   extensions: ForeignFunctionInterface
   hs-source-dirs: src
-  ghc-options: -Wall -lA_C -I./c-src
+  ghc-options: -Wall
 
 executable binding_test
   Main-Is: BindingTest.hs
   hs-source-dirs: src
   build-depends: base,CPlusPlusBinding
-  include-dirs: ./c-src
-  ghc-options: -Wall -threaded -lHSCPlusPlusBinding-0.1.0.0 -lA -lstdc++
+  ghc-options: -Wall -threaded -I./c-src -pgml g++ "-optl-Wl,--whole-archive" "-optl-Wl,-Bstatic" "-optl-Wl,-lA_C" "-optl-Wl,-Bdynamic" "-optl-Wl,--no-whole-archive"
+  include-dirs: ./c-src ./cpp-includes
+  ld-options: ./cpp-src/libA.a

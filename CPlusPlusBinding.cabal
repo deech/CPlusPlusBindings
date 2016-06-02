@@ -21,6 +21,6 @@ executable binding_test
   Main-Is: BindingTest.hs
   hs-source-dirs: src
   build-depends: base,CPlusPlusBinding
-  ghc-options: -Wall -threaded -I./c-src -pgml g++ "-optl-Wl,--whole-archive" "-optl-Wl,-Bstatic" "-optl-Wl,-lA_C" "-optl-Wl,-Bdynamic" "-optl-Wl,--no-whole-archive"
+  ghc-options: -Wall -threaded -pgml g++ "-optl-Wl,--whole-archive" "-optl-Wl,-Bstatic" "-optl-Wl,-lA_C" "-optl-Wl,-Bdynamic" "-optl-Wl,--no-whole-archive"
   include-dirs: ./c-src ./cpp-includes
-  ld-options: ./cpp-src/libA.a
+  ld-options: -lA

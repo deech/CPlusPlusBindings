@@ -17,6 +17,7 @@ main = defaultMainWithHooks simpleUserHooks {
   }
 
 clibdir = unsafePerformIO getCurrentDirectory ++ "/c-src"
+cpplibdir = unsafePerformIO getCurrentDirectory ++ "/cpp-src"
 
 addToEnvironmentVariable :: String -> String -> IO ()
 addToEnvironmentVariable env value = do
@@ -31,6 +32,7 @@ myBuildHook pkg_descr local_bld_info user_hooks bld_flags =
              rawSystemExit normal "make" []
      addToEnvironmentVariable "C_INCLUDE_PATH" clibdir
      addToEnvironmentVariable "LIBRARY_PATH" clibdir
+     addToEnvironmentVariable "LIBRARY_PATH" cpplibdir
      buildHook simpleUserHooks pkg_descr local_bld_info user_hooks bld_flags
 
 myCleanHook pd x uh cf = do

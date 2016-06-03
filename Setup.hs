@@ -32,7 +32,9 @@ myBuildHook pkg_descr local_bld_info user_hooks bld_flags =
              rawSystemExit normal "make" []
      addToEnvironmentVariable "C_INCLUDE_PATH" clibdir
      addToEnvironmentVariable "LIBRARY_PATH" clibdir
+     addToEnvironmentVariable "LD_LIBRARY_PATH" clibdir
      addToEnvironmentVariable "LIBRARY_PATH" cpplibdir
+     addToEnvironmentVariable "LD_LIBRARY_PATH" cpplibdir
      buildHook simpleUserHooks pkg_descr local_bld_info user_hooks bld_flags
 
 myCleanHook pd x uh cf = do

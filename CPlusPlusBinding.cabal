@@ -16,11 +16,11 @@ library
   extensions: ForeignFunctionInterface
   hs-source-dirs: src
   ghc-options: -Wall
+  include-dirs: ./c-src ./cpp-src ./cpp-includes
+  ld-options: -lA
 
 executable binding_test
   Main-Is: BindingTest.hs
   hs-source-dirs: src
   build-depends: base,CPlusPlusBinding
-  ghc-options: -Wall -threaded -pgml g++ "-optl-Wl,--whole-archive" "-optl-Wl,-Bstatic" "-optl-Wl,-lA_C" "-optl-Wl,-Bdynamic" "-optl-Wl,--no-whole-archive"
-  include-dirs: ./c-src ./cpp-includes
-  ld-options: -lA
+  ghc-options: -Wall -threaded -I./c-src -pgml g++ "-optl-Wl,--whole-archive" "-optl-Wl,-Bstatic" "-optl-Wl,-lA_C" "-optl-Wl,-Bdynamic" "-optl-Wl,--no-whole-archive"
